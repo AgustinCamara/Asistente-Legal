@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agente Judicial IA — Derecho Uruguayo</title>
+
+  <!-- css separado por funcionalidad (el orden importa) -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/chat.css" />
+  <link rel="stylesheet" href="css/input.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+
+  <!-- header -- logo, titulo y toggle de tema -->
+  <header class="header">
+    <div class="header__brand">
+      <!-- icono de balanza en svg para no depender de librerias -->
+      <svg class="header__icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M32 4v52M20 56h24M32 4l-20 24h40L32 4z" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="12" cy="28" r="6" stroke="currentColor" stroke-width="2.5"/>
+        <circle cx="52" cy="28" r="6" stroke="currentColor" stroke-width="2.5"/>
+        <path d="M12 28c0 4 3 8 6 8h-12c3 0 6-4 6-8zM52 28c0 4 3 8 6 8h-12c3 0 6-4 6-8z" stroke="currentColor" stroke-width="2"/>
+      </svg>
+      <div>
+        <h1 class="header__title">Agente Judicial IA</h1>
+        <p class="header__subtitle">Asistente legal especializado en Derecho Uruguayo</p>
+      </div>
+    </div>
+
+    <div class="header__actions">
+      <!-- boton nuevo chat -->
+      <button id="newChatBtn" class="new-chat-btn" aria-label="Nuevo chat" title="Nuevo chat">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+        <span>Nuevo chat</span>
+      </button>
+
+      <!-- toggle modo oscuro / claro -->
+      <button id="themeToggle" class="theme-toggle" aria-label="Cambiar tema" title="Cambiar tema">
+        <svg class="theme-toggle__sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2" fill="none"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></g></svg>
+        <svg class="theme-toggle__moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 0 1 11.21 3a7 7 0 1 0 9.79 9.79z" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- area de chat -->
+  <main class="chat">
+
+    <!-- mensaje de bienvenida -->
+    <div class="chat__welcome" id="welcome">
+      <div class="chat__welcome-icon">⚖️</div>
+      <h2>Bienvenido al Agente Judicial IA</h2>
+      <p>Realice consultas sobre legislación, procedimientos judiciales, derechos y obligaciones en el marco del Derecho Uruguayo.</p>
+      <div class="chat__suggestions">
+        <button class="suggestion" data-q="¿Cuáles son los derechos fundamentales en la Constitución uruguaya?">Derechos fundamentales</button>
+        <button class="suggestion" data-q="¿Cómo se inicia un juicio civil en Uruguay?">Iniciar juicio civil</button>
+        <button class="suggestion" data-q="¿Qué dice el Código Penal sobre la legítima defensa?">Legítima defensa</button>
+        <button class="suggestion" data-q="¿Cuáles son los derechos laborales básicos en Uruguay?">Derechos laborales</button>
+      </div>
+    </div>
+
+    <!-- aca van los mensajes -->
+    <div class="chat__messages" id="messages"></div>
+
+    <!-- loader de los puntitos -->
+    <div class="chat__loading hidden" id="loading">
+      <div class="loading-dots">
+        <span></span><span></span><span></span>
+      </div>
+      <span class="loading-text">El asistente está analizando su consulta…</span>
+    </div>
+  </main>
+
+  <!-- footer -- campo de entrada -->
+  <footer class="input-area">
+    <form id="queryForm" class="input-area__form" autocomplete="off">
+      <div class="input-area__wrapper">
+        <textarea
+          id="queryInput"
+          class="input-area__textarea"
+          rows="1"
+          placeholder="Escriba su consulta legal aquí…"
+          aria-label="Consulta legal"
+          maxlength="2000"
+        ></textarea>
+        <button type="submit" id="sendBtn" class="input-area__send" aria-label="Enviar consulta" title="Enviar consulta">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <p class="input-area__hint">Presione <kbd>Enter</kbd> para enviar · <kbd>Shift + Enter</kbd> para nueva línea</p>
+    </form>
+    <p class="input-area__disclaimer">Las respuestas son orientativas y no sustituyen el asesoramiento de un profesional del Derecho.</p>
+  </footer>
+
+  <!-- js separado por funcionalidad (el orden importa) -->
+  <script src="js/config.js"></script>
+  <script src="js/prompt.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/chat.js"></script>
+  <script src="js/theme.js"></script>
+</body>
+</html>

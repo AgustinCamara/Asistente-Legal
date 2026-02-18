@@ -1,0 +1,71 @@
+/* base.css
+   aca van las variables de colores y tokens de diseño para tema claro y oscuro,
+   el reset universal y los estilos base de html/body.
+   tiene que cargarse antes que todos los demas css porque las variables se usan en todos lados.
+   si queres cambiar la paleta, toca las variables en :root y en [data-theme="dark"]. */
+
+:root {
+  /* paleta modo claro */
+  --bg-primary:    #f4f5f7;
+  --bg-secondary:  #ffffff;
+  --bg-chat:       #eaecf0;
+  --text-primary:  #1a1d23;
+  --text-secondary:#4b5563;
+  --accent:        #1e3a5f;       /* azul oscuro tipo "legal" */
+  --accent-light:  #2c5282;
+  --accent-bg:     #e8edf4;
+  --border:        #d1d5db;
+  --user-bubble:   #1e3a5f;
+  --user-text:     #ffffff;
+  --ai-bubble:     #ffffff;
+  --ai-text:       #1a1d23;
+  --shadow:        0 2px 8px rgba(0,0,0,.08);
+  --shadow-lg:     0 4px 20px rgba(0,0,0,.10);
+  --radius:        12px;
+  --radius-sm:     8px;
+  --transition:    .25s ease;
+  --font-sans:     'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-serif:    Georgia, 'Times New Roman', serif;
+}
+
+/* tema oscuro — pisa las variables de arriba */
+[data-theme="dark"] {
+  --bg-primary:    #0f1117;
+  --bg-secondary:  #1a1d27;
+  --bg-chat:       #14161e;
+  --text-primary:  #e4e6eb;
+  --text-secondary:#9ca3af;
+  --accent:        #5b9bd5;
+  --accent-light:  #7ab3e8;
+  --accent-bg:     #1c2640;
+  --border:        #2d3140;
+  --user-bubble:   #2c5282;
+  --user-text:     #e4e6eb;
+  --ai-bubble:     #1e2130;
+  --ai-text:       #e4e6eb;
+  --shadow:        0 2px 8px rgba(0,0,0,.30);
+  --shadow-lg:     0 4px 20px rgba(0,0,0,.40);
+}
+
+/* reset universal */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  transition: background var(--transition), color var(--transition);
+}

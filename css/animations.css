@@ -1,0 +1,73 @@
+/* animations.css
+   las animaciones (fadeUp para los mensajes, dot-bounce para el loader,
+   shake para los errores), la scrollbar custom y los media queries
+   para que se vea bien en celulares.
+   necesita base.css para las variables. */
+
+/* scrollbar custom (solo webkit/chromium) */
+.chat::-webkit-scrollbar {
+  width: 6px;
+}
+.chat::-webkit-scrollbar-track {
+  background: transparent;
+}
+.chat::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+.chat::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* fadeUp — entrada suave desde abajo */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* dot-bounce — los puntitos del loader */
+@keyframes dot-bounce {
+  from { transform: translateY(0); opacity: .4; }
+  to   { transform: translateY(-6px); opacity: 1; }
+}
+
+/* shake — tiembla cuando hay error */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25%      { transform: translateX(-5px); }
+  50%      { transform: translateX(5px); }
+  75%      { transform: translateX(-3px); }
+}
+
+/* responsive para pantallas chicas */
+@media (max-width: 640px) {
+  .header {
+    padding: .65rem 1rem;
+  }
+  .header__title {
+    font-size: 1.05rem;
+  }
+  .header__subtitle {
+    font-size: .7rem;
+  }
+  .header__icon {
+    width: 32px;
+    height: 32px;
+  }
+  .chat {
+    padding: 1rem .65rem;
+  }
+  .chat__welcome h2 {
+    font-size: 1.2rem;
+  }
+  .message__bubble {
+    max-width: 88%;
+    font-size: .88rem;
+  }
+  .input-area {
+    padding: .5rem .65rem .75rem;
+  }
+  .input-area__hint {
+    display: none;
+  }
+}

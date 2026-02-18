@@ -1,0 +1,114 @@
+/* input.css
+   la barra de abajo donde el usuario escribe: el textarea que crece solo,
+   el boton redondo de enviar, los atajos de teclado, el disclaimer legal
+   y el mensajito de error que tiembla cuando pones algo mal.
+   necesita base.css y animations.css. */
+
+.input-area {
+  padding: .75rem 1rem 1rem;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.input-area__form {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+/* agrupa textarea + boton enviar */
+.input-area__wrapper {
+  display: flex;
+  align-items: flex-end;
+  gap: .5rem;
+  background: var(--bg-primary);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: .5rem .65rem;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+.input-area__wrapper:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(30,58,95,.12);
+}
+
+/* textarea */
+.input-area__textarea {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: .95rem;
+  color: var(--text-primary);
+  resize: none;
+  max-height: 120px;
+  line-height: 1.5;
+  padding: .25rem 0;
+}
+.input-area__textarea::placeholder {
+  color: var(--text-secondary);
+  opacity: .7;
+}
+
+/* boton de envio */
+.input-area__send {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all var(--transition);
+}
+.input-area__send:hover {
+  background: var(--accent-light);
+  transform: scale(1.05);
+}
+.input-area__send:disabled {
+  opacity: .4;
+  cursor: not-allowed;
+  transform: none;
+}
+.input-area__send svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* texto de ayuda con atajos de teclado */
+.input-area__hint {
+  text-align: center;
+  font-size: .72rem;
+  color: var(--text-secondary);
+  margin-top: .4rem;
+}
+.input-area__hint kbd {
+  background: var(--bg-chat);
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: .7rem;
+  border: 1px solid var(--border);
+}
+
+/* disclaimer legal */
+.input-area__disclaimer {
+  text-align: center;
+  font-size: .7rem;
+  color: var(--text-secondary);
+  margin-top: .35rem;
+  opacity: .75;
+}
+
+/* mensaje de error cuando la consulta no es valida */
+.input-error {
+  color: #dc3545;
+  font-size: .8rem;
+  text-align: center;
+  margin-top: .35rem;
+  animation: shake .35s ease;
+}
