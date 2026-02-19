@@ -126,5 +126,6 @@ Las respuestas generadas por este asistente son **orientativas** y no sustituyen
 
 ## 📄 Licencia
 
-MIT © Agus
+MIT © AgustinCamara
+
 
