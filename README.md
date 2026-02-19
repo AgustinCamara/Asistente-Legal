@@ -15,8 +15,6 @@ Asistente legal virtual impulsado por inteligencia artificial, especializado en 
 |:-----------:|:-----------:|
 | ![light-mode](images/light.png) | ![dark-mode](images/night.png) |
 
-> *Reemplazar las imágenes placeholder con capturas reales de la app.*
-
 ---
 
 ## ✨ Características
@@ -127,5 +125,3 @@ Las respuestas generadas por este asistente son **orientativas** y no sustituyen
 ## 📄 Licencia
 
 MIT © AgustinCamara
-
-
