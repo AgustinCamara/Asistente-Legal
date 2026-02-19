@@ -13,7 +13,7 @@ Asistente legal virtual impulsado por inteligencia artificial, especializado en 
 
 | Modo Claro | Modo Oscuro |
 |:-----------:|:-----------:|
-| ![light-mode](https://via.placeholder.com/400x250?text=Modo+Claro) | ![dark-mode](https://via.placeholder.com/400x250?text=Modo+Oscuro) |
+| ![light-mode](images/light.png) | ![dark-mode](images/night.png) |
 
 > *Reemplazar las imágenes placeholder con capturas reales de la app.*
 
@@ -79,7 +79,7 @@ Los archivos JS se cargan en orden de dependencia: `config → prompt → ui →
 
 3. **Escribir una consulta** legal en el campo de texto y presionar <kbd>Enter</kbd>.
 
-> **Nota:** La app consume la API de Groq directamente desde el cliente. Para uso en producción se recomienda mover la API key a un backend o proxy.
+> **Nota:** La app consume la API de Groq directamente desde mi cuenta, unicamente para que funcione. Para uso en producción se recomienda mover la API key a un backend o proxy.
 
 ---
 
@@ -127,3 +127,4 @@ Las respuestas generadas por este asistente son **orientativas** y no sustituyen
 ## 📄 Licencia
 
 MIT © Agus
+
