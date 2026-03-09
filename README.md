@@ -98,10 +98,3 @@ El agente está entrenado contextualmente para responder sobre:
 ## Disclaimer
 
 Las respuestas generadas por este asistente son **orientativas** y no sustituyen el asesoramiento de un profesional del Derecho matriculado. La información proporcionada puede no estar actualizada o ser imprecisa.
-
----
-
-## 📄 Licencia
-
-MIT © AgustinCamara
-
