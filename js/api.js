@@ -23,11 +23,9 @@ async function generateResponse(userMessage) {
     const response = await fetch(API_URL, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${API_KEY}`
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        model: MODEL,
         messages: messages,
         temperature: 0.4,
         max_tokens: 2048,

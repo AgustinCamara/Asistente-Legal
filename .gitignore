@@ -1,0 +1,10 @@
+# variables de entorno (API keys, secretos)
+.env
+.env.local
+.env.*.local
+
+# dependencias
+node_modules/
+
+# vercel
+.vercel/
