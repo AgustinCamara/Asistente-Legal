@@ -1,15 +1,10 @@
-# ⚖️ Agente Judicial IA — Derecho Uruguayo
+# Agente Judicial IA — Derecho Uruguayo
 
 Asistente legal virtual impulsado por inteligencia artificial, especializado en el Derecho de la República Oriental del Uruguay. Permite realizar consultas sobre legislación, procedimientos judiciales, derechos y obligaciones de forma conversacional.
 
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
-![Groq](https://img.shields.io/badge/Groq_API-LLaMA_3.3_70B-orange?style=flat)
-
 ---
 
-## 📸 Preview
+## Preview
 
 | Modo Claro | Modo Oscuro |
 |:-----------:|:-----------:|
@@ -17,7 +12,7 @@ Asistente legal virtual impulsado por inteligencia artificial, especializado en 
 
 ---
 
-## ✨ Características
+## Características
 
 - **Chat conversacional con IA** — Interfaz estilo chat que mantiene el contexto de la conversación (hasta 20 intercambios).
 - **Especializado en Derecho Uruguayo** — System prompt diseñado para responder exclusivamente sobre legislación, normativa y procedimientos del Uruguay, citando leyes y artículos relevantes.
@@ -31,7 +26,7 @@ Asistente legal virtual impulsado por inteligencia artificial, especializado en 
 
 ---
 
-## 🏗️ Arquitectura
+## Arquitectura
 
 ```
 ├── index.html            # Estructura del chat, header y footer
@@ -55,7 +50,7 @@ Los archivos JS se cargan en orden de dependencia: `config → prompt → ui →
 
 ---
 
-## 🔧 Tecnologías
+## Tecnologías
 
 | Capa | Tecnología |
 |------|-----------|
@@ -65,23 +60,7 @@ Los archivos JS se cargan en orden de dependencia: `config → prompt → ui →
 
 ---
 
-## 🚀 Cómo usar
-
-1. **Clonar el repositorio**
-   ```bash
-   git clone https://github.com/tu-usuario/agente-judicial-ia.git
-   cd agente-judicial-ia
-   ```
-
-2. **Abrir `index.html`** en el navegador — no requiere build, bundler ni servidor.
-
-3. **Escribir una consulta** legal en el campo de texto y presionar <kbd>Enter</kbd>.
-
-> **Nota:** La app consume la API de Groq directamente desde mi cuenta, unicamente para que funcione. Para uso en producción se recomienda mover la API key a un backend o proxy.
-
----
-
-## ⚙️ Configuración
+## Configuración
 
 Para cambiar el modelo, proveedor o API key, editar `js/config.js`:
 
@@ -95,7 +74,7 @@ Para modificar el comportamiento del asistente (tono, reglas, áreas de conocimi
 
 ---
 
-## 📚 Áreas de conocimiento
+## Áreas de conocimiento
 
 El agente está entrenado contextualmente para responder sobre:
 
@@ -116,7 +95,7 @@ El agente está entrenado contextualmente para responder sobre:
 
 ---
 
-## ⚠️ Disclaimer
+## Disclaimer
 
 Las respuestas generadas por este asistente son **orientativas** y no sustituyen el asesoramiento de un profesional del Derecho matriculado. La información proporcionada puede no estar actualizada o ser imprecisa.
 
@@ -125,3 +104,4 @@ Las respuestas generadas por este asistente son **orientativas** y no sustituyen
 ## 📄 Licencia
 
 MIT © AgustinCamara
+
