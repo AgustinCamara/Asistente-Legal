@@ -1,100 +1,99 @@
-# Agente Judicial IA — Derecho Uruguayo
+# Legal AI Agent — Uruguayan Law
 
-Asistente legal virtual impulsado por inteligencia artificial, especializado en el Derecho de la República Oriental del Uruguay. Permite realizar consultas sobre legislación, procedimientos judiciales, derechos y obligaciones de forma conversacional.
+Virtual legal assistant powered by artificial intelligence, specialized in the Law of the Oriental Republic of Uruguay. Allows conversational queries about legislation, judicial procedures, rights, and obligations.
 
 ---
 
 ## Preview
 
-| Modo Claro | Modo Oscuro |
+| Light Mode | Dark Mode |
 |:-----------:|:-----------:|
 | ![light-mode](images/light.png) | ![dark-mode](images/night.png) |
 
 ---
 
-## Características
+## Features
 
-- **Chat conversacional con IA** — Interfaz estilo chat que mantiene el contexto de la conversación (hasta 20 intercambios).
-- **Especializado en Derecho Uruguayo** — System prompt diseñado para responder exclusivamente sobre legislación, normativa y procedimientos del Uruguay, citando leyes y artículos relevantes.
-- **Modo oscuro / claro** — Toggle de tema con persistencia en `localStorage` y detección automática de preferencia del sistema operativo.
-- **Sugerencias rápidas** — Botones de consulta predefinidos para explorar funcionalidades sin escribir.
-- **Markdown → HTML** — Las respuestas del modelo se renderizan con negritas, viñetas y listas numeradas.
-- **Manejo de errores robusto** — Mensajes claros ante errores de red, rate limiting o respuestas vacías.
-- **Protección XSS** — El input del usuario se escapa antes de insertarse en el DOM.
-- **Responsive** — Diseño adaptable a escritorio y dispositivos móviles.
-- **Zero dependencies** — Sin frameworks ni librerías externas; HTML, CSS y JavaScript vanilla.
+- **Conversational AI Chat** — Chat-style interface that maintains conversation context (up to 20 exchanges).
+- **Specialized in Uruguayan Law** — System prompt designed to respond exclusively about Uruguayan legislation, regulations, and procedures, citing relevant laws and articles.
+- **Dark / Light Mode** — Theme toggle with persistence in `localStorage` and automatic detection of OS preference.
+- **Quick Suggestions** — Predefined query buttons to explore features without typing.
+- **Markdown → HTML** — Model responses are rendered with bold, bullet points, and numbered lists.
+- **Robust Error Handling** — Clear messages for network errors, rate limiting, or empty responses.
+- **XSS Protection** — User input is escaped before being inserted into the DOM.
+- **Responsive** — Adaptable design for desktop and mobile devices.
+- **Zero dependencies** — No frameworks or external libraries; pure HTML, CSS, and vanilla JavaScript.
 
 ---
 
-## Arquitectura
+## Architecture
 
 ```
-├── index.html            # Estructura del chat, header y footer
+├── index.html            # Chat structure, header and footer
 ├── css/
-│   ├── base.css          # Variables CSS (tokens), reset y estilos globales
-│   ├── header.css        # Estilos del header, logo y navegación
-│   ├── chat.css          # Mensajes, burbujas y pantalla de bienvenida
-│   ├── input.css         # Campo de entrada y botón de envío
-│   └── animations.css    # Transiciones y animaciones
+│   ├── base.css          # CSS variables (tokens), reset and global styles
+│   ├── header.css        # Header styles, logo and navigation
+│   ├── chat.css          # Messages, bubbles and welcome screen
+│   ├── input.css         # Input field and send button
+│   └── animations.css    # Transitions and animations
 ├── js/
-│   ├── config.js         # API key, URL del endpoint y modelo
-│   ├── prompt.js         # System prompt con reglas y áreas de conocimiento
-│   ├── ui.js             # Referencias al DOM, estado global y helpers de UI
-│   ├── api.js            # Comunicación con la API de Groq
-│   ├── chat.js           # Lógica principal: envío, validación y eventos
-│   └── theme.js          # Toggle de tema oscuro/claro con persistencia
+│   ├── config.js         # API key, endpoint URL and model
+│   ├── prompt.js         # System prompt with rules and knowledge areas
+│   ├── ui.js             # DOM references, global state and UI helpers
+│   ├── api.js            # Communication with Groq API
+│   ├── chat.js           # Main logic: sending, validation and events
+│   └── theme.js          # Dark/light theme toggle with persistence
 └── README.md
 ```
 
-Los archivos JS se cargan en orden de dependencia: `config → prompt → ui → api → chat → theme`.
+JS files are loaded in dependency order: `config → prompt → ui → api → chat → theme`.
 
 ---
 
-## Tecnologías
+## Technologies
 
-| Capa | Tecnología |
+| Layer | Technology |
 |------|-----------|
 | **Frontend** | HTML5, CSS3 (Custom Properties, Flexbox), JavaScript ES6+ (vanilla) |
-| **IA / LLM** | [Groq API](https://groq.com/) con modelo **LLaMA 3.3 70B Versatile** |
-| **Diseño** | Sistema de tokens CSS con soporte de tema claro/oscuro, SVG inline |
-
+| **AI / LLM** | [Groq API](https://groq.com/) with **LLaMA 3.3 70B Versatile** model |
+| **Design** | CSS token system with light/dark theme support, inline SVG |
 ---
 
-## Configuración
+## Configuration
 
-Para cambiar el modelo, proveedor o API key, editar `js/config.js`:
+To change the model, provider or API key, edit `js/config.js`:
 
 ```js
-const API_KEY = 'tu_api_key_aqui';
+const API_KEY = 'your_api_key_here';
 const API_URL = 'https://api.groq.com/openai/v1/chat/completions';
 const MODEL   = 'llama-3.3-70b-versatile';
 ```
 
-Para modificar el comportamiento del asistente (tono, reglas, áreas de conocimiento), editar el prompt en `js/prompt.js`.
+To modify the assistant's behavior (tone, rules, knowledge areas), edit the prompt in `js/prompt.js`.
 
 ---
 
-## Áreas de conocimiento
+## Knowledge Areas
 
-El agente está entrenado contextualmente para responder sobre:
+The agent is contextually trained to answer about:
 
-- Constitución de la República (1967 y reformas)
-- Código Civil y Código de Comercio
-- Código Penal y Código del Proceso Penal (Ley 19.293)
-- Código General del Proceso (Ley 15.982)
-- Derecho Laboral (jornada, despido, Consejos de Salarios, BPS)
-- Derecho de Familia (matrimonio, divorcio, pensión alimenticia, tenencia)
-- Derecho del Consumidor (Ley 17.250)
-- Arrendamientos urbanos (Decreto-Ley 14.219)
-- Sociedades comerciales (Ley 16.060, SAS Ley 19.820)
-- Violencia doméstica (Ley 17.514, Ley 19.580)
-- Protección de datos personales (Ley 18.331)
-- Amparo (Ley 16.011) y Habeas Corpus
-- Derecho tributario (IVA, IRPF, IRAE)
-- Tránsito (Ley 18.191)
+- Constitution of the Republic (1967 and amendments)
+- Civil Code and Commercial Code
+- Criminal Code and Criminal Procedure Code (Law 19.293)
+- General Procedure Code (Law 15.982)
+- Labor Law (workday, dismissal, Wage Councils, BPS)
+- Family Law (marriage, divorce, alimony, custody)
+- Consumer Law (Law 17.250)
+- Urban Leases (Decree-Law 14.219)
+- Commercial Companies (Law 16.060, SAS Law 19.820)
+- Domestic Violence (Law 17.514, Law 19.580)
+- Personal Data Protection (Law 18.331)
+- Amparo (Law 16.011) and Habeas Corpus
+- Tax Law (VAT, IRPF, IRAE)
+- Traffic (Law 18.191)
 
 ---
 
 ## Disclaimer
 
-Las respuestas generadas por este asistente son **orientativas** y no sustituyen el asesoramiento de un profesional del Derecho matriculado. La información proporcionada puede no estar actualizada o ser imprecisa.
+The answers generated by this assistant are **for guidance only** and do not replace the advice of a licensed legal professional. The information provided may not be up to date or may be inaccurate.
